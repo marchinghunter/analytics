@@ -5,28 +5,25 @@ import Barcomponent from "./Barcomponent";
 
 const Otherinsight = () => {
   const [selectedLocation, setSelectedLocation] = useState("Country");
-  const [selectedBehaviour, setSelectedBehaviour] = useState("Browser");
+  const [selectedBehaviour, setSelectedBehaviour] = useState("Browsers");
   const [selectedTraffic, setSelectedTraffic] = useState("Source");
-  const selectLocation = () => {
-    if (selectedLocation === "Country") {
-      setSelectedLocation("City");
-    } else {
-      setSelectedLocation("Country");
-    }
+  const selectLocationCountry = () => {
+    setSelectedLocation("City");
   };
-  const selectBehaviour = () => {
-    if (selectedBehaviour === "Browser") {
-      setSelectedBehaviour("Decides");
-    } else {
-      setSelectedBehaviour("Browser");
-    }
+  const selectLocationCity = () => {
+    setSelectedLocation("Country");
   };
-  const selectTraffic = () => {
-    if (selectedTraffic === "Source") {
-      setSelectedTraffic("City");
-    } else {
-      setSelectedTraffic("Source");
-    }
+  const selectBehaviourBrowser = () => {
+    setSelectedBehaviour("Browsers");
+  };
+  const selectBehaviourDecides = () => {
+    setSelectedBehaviour("Decides");
+  };
+  const selectTrafficSource = () => {
+    setSelectedTraffic("Source");
+  };
+  const selectTrafficCity = () => {
+    setSelectedTraffic("City");
   };
   let filterDataCountry = useMemo(() => {
     return [
@@ -182,21 +179,94 @@ const Otherinsight = () => {
           </button>
         </div>
         <div className="traffic otherinsightdatacontainer">
-          <h1 className="oititle">Traffic</h1>
+          <h1 className="oititle">
+            Traffic
+            <div className="slidercontainer">
+              <button
+                className="btn 1h"
+                style={{
+                  backgroundColor:
+                    selectedLocation == "Country" ? "#cfcfcf" : "#f0f0f0",
+                }}
+                onClick={selectLocationCity}
+              >
+                Country
+              </button>
+              <button
+                className="btn 24h"
+                style={{
+                  backgroundColor:
+                    selectedLocation == "City" ? "#cfcfcf" : "#f0f0f0",
+                }}
+                onClick={selectLocationCountry}
+              >
+                City
+              </button>
+            </div>
+          </h1>
+
           <Barcomponent Data={filterDataSocial} />
           <button className="leaderboardbtn trafficuniquebtn">
             See Traffic Source
           </button>
         </div>
         <div className="signuplocation otherinsightdatacontainer">
-          <h1 className="oititle">Signup Location</h1>
+          <h1 className="oititle">
+            Signup Location
+            <div className="slidercontainer">
+              <button
+                className="btn 1h"
+                style={{
+                  backgroundColor:
+                  selectedTraffic == "Source" ? "#cfcfcf" : "#f0f0f0",
+                }}
+                onClick={selectTrafficSource}
+              >
+                Source
+              </button>
+              <button
+                className="btn 24h"
+                style={{
+                  backgroundColor:
+                  selectedTraffic == "City" ? "#cfcfcf" : "#f0f0f0",
+                }}
+                onClick={selectTrafficCity}
+              >
+                City
+              </button>
+            </div>
+          </h1>
           <Barcomponent Data={filterDataCountry} />
           <button className="leaderboardbtn trafficuniquebtn">
             See All Countries
           </button>
         </div>
         <div className="behaviour otherinsightdatacontainer">
-          <h1 className="oititle">Behaviour</h1>
+          <h1 className="oititle">
+            Behaviour
+            <div className="slidercontainer">
+              <button
+                className="btn 1h"
+                style={{
+                  backgroundColor:
+                    selectedBehaviour == "Browsers" ? "#cfcfcf" : "#f0f0f0",
+                }}
+                onClick={selectBehaviourBrowser}
+              >
+                Browser
+              </button>
+              <button
+                className="btn 24h"
+                style={{
+                  backgroundColor:
+                    selectedBehaviour == "Decides" ? "#cfcfcf" : "#f0f0f0",
+                }}
+                onClick={selectBehaviourDecides}
+              >
+                City
+              </button>
+            </div>
+          </h1>
           <Barcomponent Data={filterDataCountry} />
           <button className="leaderboardbtn trafficuniquebtn">
             See All Countries
