@@ -1,0 +1,41 @@
+.icontainer{
+    width:1380px;
+    /* margin: 20px; */
+    margin: 100px;
+    background-color: white;
+    height: 600px;
+    border-radius: 12px;
+    box-shadow: 9px 11px 24px -9px rgba(0,0,0,0.75);
+}
+.isubcontainer{
+    padding:80px;
+}
+.iheading{
+    font-size: 42px ;
+    margin:5px;
+}
+.isubheading{
+    font-size: 25px ;
+    margin:5px;
+    font-weight: 450;
+}
+.idatamaincontainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.bolddata{
+    font-size:18px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+}
+.idata{
+    font-size:18px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+.summary{
+    font-size:28px;
+}
